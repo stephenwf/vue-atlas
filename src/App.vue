@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <Vault>
-      <manifest manifest-id="https://wellcomelibrary.org/iiif/b18035723/manifest">
+      <manifest manifest-id="https://media.getty.edu/iiif/manifest/ae8c3376-f8d6-447b-90a9-9c67b4cbe4d1">
         <div>
           <manifest-label />
           <IIIFCanvas :index="canvasIndex">
             <div>
               <canvas-label />
-              <canvas-thumbnail />
-              <canvas-thumbnail width="500" height="500"/>
+              <canvas-thumbnail width="200" height="200"/>
             </div>
           </IIIFCanvas>
 
@@ -40,7 +39,7 @@ export default {
   },
   data() {
     return {
-      canvasIndex: 0
+      canvasIndex: 1
     }
   },
   methods: {

@@ -24,7 +24,7 @@ export default {
     setCanvasThumbnail() {
       if (this.canvas.current) {
         // Request the thumbnail.
-        this.vault.getThumbnail(this.canvas.current, {width: this.width || 200, height: this.height || 200}).then(res => {
+        this.vault.getThumbnail(this.canvas.current, {height: this.height || 200, width: this.width || 200}).then(res => {
           this.thumbnail = res.best;
         })
       }
