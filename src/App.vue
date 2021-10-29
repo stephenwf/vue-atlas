@@ -1,17 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Vault>
+      <manifest manifest-id="https://wellcomelibrary.org/iiif/b18035723/manifest">
+        <div>
+          <manifest-label />
+          <IIIFCanvas :index="canvasIndex">
+            <div>
+              <canvas-label />
+              <canvas-thumbnail />
+              <canvas-thumbnail width="500" height="500"/>
+            </div>
+          </IIIFCanvas>
+
+          <button v-on:click="prev">prev</button>
+          <button v-on:click="next">next</button>
+        </div>
+      </manifest>
+    </Vault>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Vault from './components/Vault';
+import Manifest from './components/Manifest';
+import ManifestLabel from './components/ManifestLabel';
+import IIIFCanvas from './components/IIIFCanvas';
+import CanvasLabel from '@/components/CanvasLabel';
+import CanvasThumbnail from "@/components/CanvasThumbnail";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CanvasThumbnail,
+    CanvasLabel,
+    Vault,
+    Manifest,
+    ManifestLabel,
+    IIIFCanvas,
+  },
+  data() {
+    return {
+      canvasIndex: 0
+    }
+  },
+  methods: {
+    next() {
+      this.canvasIndex += 1;
+    },
+    prev() {
+      this.canvasIndex -= 1;
+    }
   }
 }
 </script>
